@@ -1,0 +1,25 @@
+{
+  "__version__": "1.0.6",
+  "general": {
+    "designResolution": {
+      "height": 1920,
+      "fitHeight": false,
+      "width": 1080
+    }
+  },
+  "sorting-layer": {
+    "layers": [
+      {
+        "id": 0,
+        "name": "default",
+        "value": 0
+      },
+      {
+        "id": 1,
+        "name": "Sorting Layer 1",
+        "value": 1
+      }
+    ],
+    "increaseId": 1
+  }
+}
