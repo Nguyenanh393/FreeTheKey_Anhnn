@@ -1,5 +1,5 @@
 import { _decorator, Component, find, Label, log, Node, Prefab } from 'cc';
-import { LevelControl } from '../LevelControl';
+import { LevelControl } from './LevelControl';
 const { ccclass, property } = _decorator;
 
 @ccclass('ButtonLevel')

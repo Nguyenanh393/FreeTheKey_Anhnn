@@ -1,5 +1,6 @@
 import { _decorator, Button, Component, Node } from 'cc';
-import { LevelControl } from '../LevelControl';
+import { LevelControl } from '../LevelControl/LevelControl';
+
 const { ccclass, property } = _decorator;
 
 @ccclass('GamePlayUI')
