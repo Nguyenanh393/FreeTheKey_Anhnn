@@ -24,7 +24,7 @@ export class VerticalBlock extends Component {
         this.size = size;
         this.number = blockNumber;
         
-        this.blockManager = BlockManager.instance.getComponent(BlockManager);
+        this.blockManager = BlockManager.getInstance();
         this.blockSize = this.blockManager.blockWidth;
         this.halfBlockSize = this.blockSize / 2;
         this.mapSize = this.blockSize * 3 + this.halfBlockSize;
@@ -78,7 +78,7 @@ export class VerticalBlock extends Component {
     move() {
         let pos = this.node.position;
         var div = Math.round(this.size.y / this.blockSize);
-        BlockManager.instance.getComponent(BlockManager).indexs = [];
+        BlockManager.getInstance().indexs = [];
         if (div % 2 == 0) {
             let y = Math.round(pos.y / this.blockSize) * this.blockSize;
             this.node.position = new Vec3(pos.x, y, pos.z);

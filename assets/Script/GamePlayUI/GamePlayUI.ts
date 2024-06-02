@@ -38,7 +38,7 @@ export class GamePlayUI extends Component {
 
     onReplay() {
         let level = this.levelControl.currentLevel;
-        this.levelControl.loadLevel(level);
+        //this.levelControl.loadLevel(level);
     }
 }
 

@@ -24,7 +24,7 @@ export class HorizontalBlock extends Component {
         this.size = size;
         this.number = blockNumber;
 
-        this.blockManager = BlockManager.instance.getComponent(BlockManager);
+        this.blockManager = BlockManager.getInstance();
         this.blockSize = this.blockManager.blockWidth;
         this.halfBlockSize = this.blockSize / 2;
         this.mapSize = this.blockSize * 3 + this.halfBlockSize;

@@ -14,6 +14,7 @@ export class BlockManager extends Singleton<BlockManager> {
     @property
     blockWidth: number = 0;
 
+    
     // @property(LevelControl)
     // levelControl: LevelControl = null;
 

@@ -34,7 +34,7 @@ export class ReadMap {
 
 
     processMatrix(matrix: number[][], maxValue: number) {
-        this.blockManager = BlockManager.instance.getComponent(BlockManager);
+        this.blockManager = BlockManager.getInstance();
         this.blockManager.currentMapMatrix = matrix;
         this.blockWidth = this.blockManager.blockWidth;
         for (let i = 1; i <= maxValue; i++) {

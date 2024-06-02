@@ -18,7 +18,7 @@ export class ButtonLevel extends Component {
 
     onTouchEnd() {
         this.levelControl.currentLevel = this.level;
-        this.levelControl.loadLevel(this.level);
+        //this.levelControl.loadLevel(this.level);
     }
 
     setInfo(label: number, level: number, levelControl: LevelControl) {

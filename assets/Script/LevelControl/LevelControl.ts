@@ -34,52 +34,52 @@ export class LevelControl extends Singleton<LevelControl> {
     startPos: Vec3 = new Vec3(0, 0, 0);
     currentLevel: number;
 
-    onLoad() {
-        this.buttonParent = instantiate(this.buttonParentPrefab);
-        this.buttonParentLocation.addChild(this.buttonParent);
-        this.startPos = this.buttonParent.getChildByName('StartPostion').position;
-        this.createLevelButton();        
-    }
+    // onLoad() {
+    //     this.buttonParent = instantiate(this.buttonParentPrefab);
+    //     this.buttonParentLocation.addChild(this.buttonParent);
+    //     this.startPos = this.buttonParent.getChildByName('StartPostion').position;
+    //     this.createLevelButton();        
+    // }
 
-    createLevelButton() {
-        for (let i = 0; i < this.levels.length; i++) {
-            let button = instantiate(this.buttonLevel);
-            button = button.getComponent(ButtonLevel);
-            button.node.parent = this.buttonParent;
-            button.node.position = new Vec3(this.startPos.x + (i % 3 * 300), this.startPos.y, this.startPos.z);
-            button.setInfo(this.levels[i], this.levels[i], this);
-            if (i % 3 == 2) {
-                this.startPos.y -= 300;
-            }
-        }
-    }
+    // createLevelButton() {
+    //     for (let i = 0; i < this.levels.length; i++) {
+    //         let button = instantiate(this.buttonLevel);
+    //         button = button.getComponent(ButtonLevel);
+    //         button.node.parent = this.buttonParent;
+    //         button.node.position = new Vec3(this.startPos.x + (i % 3 * 300), this.startPos.y, this.startPos.z);
+    //         button.setInfo(this.levels[i], this.levels[i], this);
+    //         if (i % 3 == 2) {
+    //             this.startPos.y -= 300;
+    //         }
+    //     }
+    // }
 
-    loadLevel(level: number) {
-        log(this.currentLevel)
-        if (level > this.levels.length) {
-            this.mapParentLocation.active = false;
-            this.buttonParentLocation.active = true;
-            return;
-        }
-        if (this.mapParent.children.length > 0) {
-            this.destroyMap();
-        }
-        BlockManager.instance.getComponent(BlockManager).resetBlockManager();
-        let map = instantiate(this.maps[level-1]);
-        this.mapParent.addChild(map);
-        this.buttonParentLocation.active = false;
-        this.mapParentLocation.active = true;
-    }
+    // loadLevel(level: number) {
+    //     log(this.currentLevel)
+    //     if (level > this.levels.length) {
+    //         this.mapParentLocation.active = false;
+    //         this.buttonParentLocation.active = true;
+    //         return;
+    //     }
+    //     if (this.mapParent.children.length > 0) {
+    //         this.destroyMap();
+    //     }
+    //     BlockManager.instance.getComponent(BlockManager).resetBlockManager();
+    //     let map = instantiate(this.maps[level-1]);
+    //     this.mapParent.addChild(map);
+    //     this.buttonParentLocation.active = false;
+    //     this.mapParentLocation.active = true;
+    // }
 
-    nextLevel() {
-        this.destroyMap();
-        this.currentLevel++;
-        this.loadLevel(this.currentLevel);
-    }
+    // nextLevel() {
+    //     this.destroyMap();
+    //     this.currentLevel++;
+    //     this.loadLevel(this.currentLevel);
+    // }
 
-    destroyMap() {
-        this.mapParent.removeAllChildren();
-    }
+    // destroyMap() {
+    //     this.mapParent.removeAllChildren();
+    // }
 }
 
 

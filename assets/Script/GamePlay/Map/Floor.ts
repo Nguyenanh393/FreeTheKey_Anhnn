@@ -12,7 +12,7 @@ export class Floor extends Component {
 
     blockWidth: number ;
     onEnable() {
-        this.blockWidth = BlockManager.instance.getComponent(BlockManager).blockWidth;
+        this.blockWidth = BlockManager.getInstance().blockWidth;
         this.createFloor();
     }
 
