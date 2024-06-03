@@ -1,3 +1,7 @@
+// Base source code from: Linh Soi
+// Rewrite to typescript by: AnhNN
+
+
 import { _decorator, Component, instantiate, log, Node, Prefab, resources } from 'cc';
 import UICanvas from './UICanvas';
 import { Singleton } from '../Other/Singleton';

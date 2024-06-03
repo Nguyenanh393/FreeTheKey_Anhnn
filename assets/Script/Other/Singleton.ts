@@ -1,3 +1,5 @@
+// Singleton for ts AnhNN
+
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
@@ -15,11 +17,9 @@ export class Singleton<T extends Component> extends Component {
     onLoad() {
         const registeredInstance = Singleton.instances.get(this.constructor as new () => Component);
         if (registeredInstance && registeredInstance !== this) {
-            this.node.destroy(); // Destroy the node if it's not the singleton instance
+            this.node.destroy();
         } else {
             Singleton.instances.set(this.constructor as new () => Component, this);
-            // Optionally, you might want to make the singleton persistent across scenes
-            // cc.game.addPersistRootNode(this.node);
         }
     }
     
