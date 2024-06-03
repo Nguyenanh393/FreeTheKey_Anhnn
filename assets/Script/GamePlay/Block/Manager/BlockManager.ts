@@ -1,8 +1,9 @@
-import { _decorator, Component, instantiate, Label, Node, Prefab, Sprite, UITransform, Vec2, Vec3 } from 'cc';
+import { _decorator, Component, instantiate, Label, Node, Prefab, Sprite, UITransform, Vec2, Vec3, view } from 'cc';
 import { ReadMap } from '../../Map/ReadMap';
 import { Singleton } from '../../../Other/Singleton';
 import { HorizontalBlock } from '../Block/HorizontalBlock';
 import { VerticalBlock } from '../Block/VerticalBlock';
+import { LevelControl } from '../../../LevelControl/LevelControl';
 const { ccclass, property } = _decorator;
 
 @ccclass('BlockManager')
@@ -41,6 +42,10 @@ export class BlockManager extends Singleton<BlockManager> {
     loadMap() {
         this.readMap = new ReadMap();
         this.readMap.loadJson();
+    }
+
+    spawnMap(level: number) {
+        this.readMap.loadLevel(level);
     }
 
     addBlockPosition(pos: Vec3) {
@@ -85,6 +90,7 @@ export class BlockManager extends Singleton<BlockManager> {
             block.getComponent(VerticalBlock).OnInit(size, pos, blockNumber);
         }
     }
+    
 }
 
 

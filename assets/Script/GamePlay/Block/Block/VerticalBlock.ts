@@ -1,4 +1,4 @@
-import { _decorator, Canvas, Component, EventTouch, find, log, Node, UITransform, Vec2, Vec3 } from 'cc';
+import { _decorator, Canvas, Component, EventTouch, find, log, Node, Vec2, Vec3 } from 'cc';
 import { BlockManager } from '../Manager/BlockManager';
 
 const { ccclass, property } = _decorator;

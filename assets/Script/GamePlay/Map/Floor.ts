@@ -1,4 +1,4 @@
-import { _decorator, Component, instantiate, Prefab, Vec3 } from 'cc';
+import { _decorator, Component, instantiate, Prefab, Sprite, UITransform, Vec3 } from 'cc';
 import { BlockManager } from '../Block/Manager/BlockManager';
 
 
@@ -11,7 +11,7 @@ export class Floor extends Component {
     blockPrefab: Prefab = null;
 
     blockWidth: number ;
-    onEnable() {
+    onLoad() {
         this.blockWidth = BlockManager.getInstance().blockWidth;
         this.createFloor();
     }
@@ -20,37 +20,49 @@ export class Floor extends Component {
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 let block = instantiate(this.blockPrefab);
-                block.parent = this.node;
+                this.node.addChild(block);
                 block.setPosition(new Vec3(j * this.blockWidth + this.blockWidth/2,
                     i * this.blockWidth + this.blockWidth/2, 0));      
 
+                
+                block.getComponent(UITransform).width = this.blockWidth;
+                block.getComponent(UITransform).height = this.blockWidth;
             }
         }
 
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 let block = instantiate(this.blockPrefab);
-                block.parent = this.node;
+                this.node.addChild(block);
                 block.setPosition(new Vec3(j * this.blockWidth + this.blockWidth/2,
-                    -i * this.blockWidth - this.blockWidth/2, 0));      
+                    -i * this.blockWidth - this.blockWidth/2, 0));   
+                    
+                block.getComponent(UITransform).width = this.blockWidth;
+                block.getComponent(UITransform).height = this.blockWidth;
             }
         }
 
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 let block = instantiate(this.blockPrefab);
-                block.parent = this.node;
+                this.node.addChild(block);
                 block.setPosition(new Vec3(-j * this.blockWidth - this.blockWidth/2,
-                    i * this.blockWidth + this.blockWidth/2, 0));      
+                    i * this.blockWidth + this.blockWidth/2, 0));    
+                    
+                block.getComponent(UITransform).width = this.blockWidth;
+                block.getComponent(UITransform).height = this.blockWidth;
             }
         }
 
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 let block = instantiate(this.blockPrefab);
-                block.parent = this.node;
+                this.node.addChild(block);
                 block.setPosition(new Vec3(-j * this.blockWidth - this.blockWidth/2,
-                    -i * this.blockWidth - this.blockWidth/2, 0));      
+                    -i * this.blockWidth - this.blockWidth/2, 0));     
+                    
+                block.getComponent(UITransform).width = this.blockWidth;
+                block.getComponent(UITransform).height = this.blockWidth;
             }
         }
     }

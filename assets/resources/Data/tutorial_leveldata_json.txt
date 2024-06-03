@@ -1,0 +1,26 @@
+Tutorial các viết map bằng file json:
+1. "map" : ma trận của map với mỗi số khác nhau là 1 
+block khác nhau, các số bằng nhau và liền nhau 
+tương ứng là các block ngang hoặc dọc
+
+QUY ƯỚC: số 1 là KEY
+
+2. "max_value": là giá trị lớn nhất trong ma trận
+
+
+Map mẫu:
+
+
+, 
+
+    "0": {
+        "map": [
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0]
+        ],
+        "max_value": 0
+    }

@@ -1,5 +1,7 @@
 import { _decorator, Canvas, Component, EventTouch, find, log, Node, UITransform, Vec2, Vec3 } from 'cc';
 import { BlockManager } from '../Manager/BlockManager';
+import { KeyBlock } from './KeyBlock';
+import { LevelControl } from '../../../LevelControl/LevelControl';
 const { ccclass, property } = _decorator;
 
 
@@ -74,12 +76,6 @@ export class HorizontalBlock extends Component {
         }
         this.currentPos = this.node.position.clone();
         this.findLimit();
-
-        // if (this.node.getComponent(KeyBlock)) {
-        //     if (this.node.getComponent(KeyBlock).checkWin()) {
-        //         this.blockManager.levelControl.nextLevel();
-        //     }
-        // }
     }
 
     move() {
@@ -129,7 +125,7 @@ export class HorizontalBlock extends Component {
         this.limitPosRight = minRight;
 
         // if (this.node.getComponent(KeyBlock)) {
-        //         this.limitPosRight = this.limitPosRight < SIZE_MAP ? this.limitPosRight : SIZE_MAP + SIZE_BLOCK * 2;
+        //         this.limitPosRight = this.limitPosRight < this.mapSize ? this.limitPosRight : this.mapSize + this.blockSize * 2;
         // }
     }
 

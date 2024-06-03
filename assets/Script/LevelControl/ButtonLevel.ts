@@ -1,5 +1,7 @@
-import { _decorator, Component, find, Label, log, Node, Prefab } from 'cc';
+import { _decorator, Component, find, Label, log, Node, Prefab, UI } from 'cc';
 import { LevelControl } from './LevelControl';
+import { UIManager } from '../UI/UIManager';
+import { LevelSelection } from '../UI/UICanvas/LevelSelection';
 const { ccclass, property } = _decorator;
 
 @ccclass('ButtonLevel')
@@ -18,7 +20,9 @@ export class ButtonLevel extends Component {
 
     onTouchEnd() {
         this.levelControl.currentLevel = this.level;
-        //this.levelControl.loadLevel(this.level);
+        this.levelControl.loadLevel(this.level);
+        //UIManager.getInstance().openUI(GamePlay);
+        //UIManager.getInstance().closeUI(LevelSelection);
     }
 
     setInfo(label: number, level: number, levelControl: LevelControl) {

@@ -13,14 +13,8 @@ export class MainControl extends Component {
         // this.levelSelectionCanvas.active = false;
         // this.gamePlayCanvas.active = false;
         // this.node.on(Node.EventType.TOUCH_END, this.startGame, this);
-        this.UIManager = UIManager.getInstance();
-        this.UIManager.openUI(Start)
+        UIManager.getInstance().openUI(Start)
         log('MainControl start')
-    }
-
-    startGame() {
-        // this.startCanvas.active = false;
-        // this.levelSelectionCanvas.active = true;
     }
 
 }

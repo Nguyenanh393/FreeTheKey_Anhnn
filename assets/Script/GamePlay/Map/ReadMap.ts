@@ -1,5 +1,7 @@
-import { _decorator, JsonAsset, resources, Vec3 } from 'cc';
+import { _decorator, JsonAsset, log, resources, Vec3 } from 'cc';
 import { BlockManager } from '../Block/Manager/BlockManager';
+import { LevelData } from '../../LevelControl/LevelData';
+import { LevelControl } from '../../LevelControl/LevelControl';
 
 
 const { ccclass, property } = _decorator;
@@ -24,13 +26,45 @@ export class ReadMap {
             const data = jsonAsset.json;
             console.log('Loaded JSON data:', data);
 
-            // Xử lý mảng 2 chiều 6x6
-            const matrix: number[][] = data["1"].map;
-            const maxValue: number = data["1"].max_value; 
-            this.processMatrix(matrix, maxValue);
+            // // Xử lý mảng 2 chiều 6x6
+            // const matrix: number[][] = data["1"].map;
+            // const maxValue: number = data["1"].max_value; 
+            // this.processMatrix(matrix, maxValue);
+
+            // lay du lieu tu data ve levelData
+            // log('data.length', data.length);
+            // for (let i = 0; i < data.length; i++) {
+            //     log('data[i].mapName', data[i].mapName);
+            //     log('data[i].map', data[i].map);
+            //     log('data[i].max_value', data[i].max_value);
+            //     LevelControl.getInstance().levelDataList.
+            //                                 push(new LevelData(
+            //                                     data[i].mapName, 
+            //                                     data[i].map, 
+            //                                     data[i].max_value));
+            // }
+
+            // if (currentLevel <= this.levelControl.levelDataList.length) {
+            //     const matrix: number[][] = this.levelControl.levelDataList[currentLevel - 1].getMap();
+            //     const maxValue: number = this.levelControl.levelDataList[currentLevel - 1].getMaxValue();
+            //     this.processMatrix(matrix, maxValue);
+            // }
+
+            Object.keys(data).forEach(key => {
+                LevelControl.getInstance().levelDataList.
+                                            push(new LevelData(
+                                                data[key].mapName, 
+                                                data[key].map, 
+                                                data[key].max_value));
+            });
         });
     }
 
+    loadLevel(level: number) {
+        const matrix: number[][] = LevelControl.getInstance().levelDataList[level - 1].getMap();
+        const maxValue: number = LevelControl.getInstance().levelDataList[level - 1].getMaxValue();
+        this.processMatrix(matrix, maxValue);
+    }
 
 
     processMatrix(matrix: number[][], maxValue: number) {
